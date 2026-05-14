@@ -36,6 +36,7 @@ df_original = df.copy()
 
 
 
+"""
 # Shape and structure
 print(f"Shape: {df.shape}")  # (rows, columns)
 print(df.info())  # Column names, dtypes, non-null counts
@@ -49,3 +50,22 @@ print(df.describe(include='str'))  # Categorical columns
 
 # Memory usage
 print(df.memory_usage(deep=True).sum() / 1024**2, "MB")
+"""
+
+
+
+# Stage 3: Data Quality Assessment
+
+
+
+# Check missing values
+missing = df.isnull().sum()
+# print(missing)
+missing_pct = (missing / len(df)) * 100
+# print(missing_pct)
+missing_df = pd.DataFrame({
+    'Missing_Count': missing,
+    'Percentage': missing_pct
+}).sort_values('Percentage', ascending=False)
+
+print(missing_df[missing_df['Missing_Count'] > 0])
