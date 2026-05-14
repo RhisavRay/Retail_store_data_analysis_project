@@ -36,3 +36,16 @@ df_original = df.copy()
 
 
 
+# Shape and structure
+print(f"Shape: {df.shape}")  # (rows, columns)
+print(df.info())  # Column names, dtypes, non-null counts
+print(df.head(10))  # First 10 rows
+print(df.tail(10))  # Last 10 rows
+print(df.columns.tolist())  # All column names
+
+# Basic statistics
+print(df.describe())  # Numeric columns only
+print(df.describe(include='str'))  # Categorical columns
+
+# Memory usage
+print(df.memory_usage(deep=True).sum() / 1024**2, "MB")
