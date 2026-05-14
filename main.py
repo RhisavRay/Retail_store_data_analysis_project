@@ -3,3 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Set display options for better readability
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', 100)
